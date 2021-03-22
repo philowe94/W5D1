@@ -19,6 +19,7 @@ class HashSet
 
   def [](num)
     # optional but useful; return the bucket corresponding to `num`
+    self[num % num_buckets]
   end
 
   def num_buckets
