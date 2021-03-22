@@ -8,25 +8,31 @@ class Array
     # arrayb = [1,2,3] => 8892348901238907
     # [3,2,1] != 8892348901238907
     
-    array = []
+    sum = 0
 
-    self.each do |ele|
-      array << ele % array[0]
+    self.each_with_index do |ele, i|
+      sum += ele * i
     end
 
-    return array.sum.hash
+    return sum.hash 
   end
 end
 
 class String
   def hash
+    int = self.split("").map { |char| char.ord }
+    int.hash 
   end
+  
 end
 
 class Hash
   # This returns 0 because rspec will break if it returns nil
   # Make sure to implement an actual Hash#hash method
   def hash
-    0
+    array = []
+    self.each do |k,v| 
+      if k.is_a(String)
+    end 
   end
 end
