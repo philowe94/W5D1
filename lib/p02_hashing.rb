@@ -4,6 +4,17 @@ end
 
 class Array
   def hash
+    # arraya = [1,2,3] => 8892348901238907
+    # arrayb = [1,2,3] => 8892348901238907
+    # [3,2,1] != 8892348901238907
+    
+    array = []
+
+    self.each do |ele|
+      array << ele % array[0]
+    end
+
+    return array.sum.hash
   end
 end
 
