@@ -31,8 +31,11 @@ class Hash
   # Make sure to implement an actual Hash#hash method
   def hash
     array = []
-    self.each do |k,v| 
-      if k.is_a(String)
-    end 
+    self.each do |k,v|   
+      combo = k.hash * v.hash
+      array << combo
+    end
+    
+    array.sort.hash
   end
 end
